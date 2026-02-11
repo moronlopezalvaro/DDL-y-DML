@@ -129,3 +129,51 @@ DROP COLUMN precio_unidad;						-- Con "alter table" nos situamos en la tabla qu
 -- 11.- Añade una nueva columna en la tabla “categoria” de nombre “url” de tipo VARCHAR de tamaño 128.
 ALTER TABLE Categoria
 ADD url VARCHAR(128);							-- Con "alter table" nos situamos en la tabla que queremos hacer cambios y con "add" añadimos la columna que sea
+
+-- Insertar datos en las tablas
+INSERT INTO Usuario (id_usuario,nombre,apellidos,email,fecha_nacimiento,tipo_miembro,puntos_acumulados,fecha_registro,fecha_ultima_visita) VALUES
+(1,'Sergio','Guillén Lara','glara@gmail.com','2001-09-12','miembro',200,'2021-01-18','2022-01-15'),
+(2,'Carmen','Suárez Pérez','sperez@gmail.com','1995-05-05','miembro_plus',12,'2018-03-20','2021-12-30'),
+(3,'Esther','Martín Gutiérrez','mguti@gmai.com','1965-02-20','miembro',340,'2015-06-06','2021-10-20');
+
+INSERT INTO Vale_descuento (id_vale,fecha_creacion,fecha_caducidad,usado,id_usuario) VALUES
+(1,'2022-01-14','2022-07-14',0,1),
+(2,'2021-12-30','2022-06-30',0,2),
+(3,'2021-05-12','2021-11-12',1,1);
+
+INSERT INTO Direccion (id_direccion,calle,ciudad,codigo_postal,poblacion,es_favorita,id_usuario) VALUES
+(1,'Calle Tetuán, 3','Sevilla',41001,'Alcalá de Guadaira',1,1),
+(2,'Calle Genil nº 2 1ºC','Granada',48030,'Motril',0,2),
+(3,'Avda Andalucía 4 Portal 2 3ºC','Zamora',52320,'Carrascal',1,2),
+(4,'Calle Cervantes, nº1','Soria',16033,'Lubia',1,3);
+
+INSERT INTO Almacen (id_almacen,nombre,poblacion,calle,ciudad,codigo_postal,capacidad_total) VALUES
+(1,'Xiun Guan S.L.','Carmona','Polígono La Isla, Calle Filosofía, 3','Sevilla',41010,45000),
+(2,'Warehouse 45','San Fernando','Calle Pinar 34','Cádiz',34500,12800),
+(3,'Tu almacén S.L.','San Juan del Puerto','Calle Aplauso nº1','Huelva',28040,90000);
+
+INSERT INTO Categoria (id_categoria,nombre,descripcion,imagen,url) VALUES
+(1,'Pantalones','Pantalones de temporada','imagen-categoria1.jpg','https://hym.web/pantalones'),
+(2,'Sudaderas','Las sudaderas que más abrigan del mercado','imagen-categoria2.jpg','https://hym.web/sudaderas'),
+(3,'Calzado','Calzado de todo tipo para todo tipo de ocasiones','imagen-categoria3.jpg','https://hym.web/calzado');
+
+INSERT INTO Producto (id_producto,nombre,descripcion,imagen,stock,precio,id_almacen) VALUES
+(1,'Joggers cargo de nailon','Joggers cargo de nailon con cintura elástica con cordón de ajuste.','prod1-joggersA.jpg',45,15.95,2),
+(2,'Zapatos Derby','Zapatos Derby con cordones abiertos. Forro y plantillas de lona. Tacón 2,5 cm.','prod2-derbyPrin.jpg',12,29.99,1),
+(3,'Sudadera Relaxed Fit','Sudadera en peluche suave con bolsillo canguro y capucha con cordón de ajuste elástico.','prod3-sudRelax.jpg',4,24.99,3);
+
+INSERT INTO Producto_categoria (id_producto,id_categoria) VALUES
+(1,1),
+(2,3),
+(3,2);
+
+INSERT INTO Compra (id_compra,forma_pago,fecha,total_compra,id_usuario,id_direccion) VALUES
+(1,'Efectivo','21-05-12',45.94,2,3),
+(2,'Tarjeta','20-10-09',59.98,2,2),
+(3,'Tarjeta','21-01-29',29.99,1,1);
+
+INSERT INTO Linea_pedido (id_linea,cantidad,total_linea,id_compra,id_producto) VALUES
+(1,1,15.95,1,1),
+(2,1,29.99,1,2),
+(3,2,59.98,2,2),
+(4,1,29.99,3,2);
