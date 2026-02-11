@@ -182,3 +182,49 @@ INSERT INTO Linea_pedido (id_linea,cantidad,total_linea,id_compra,id_producto) V
 UPDATE Usuario									-- Con "update" seleccionamos la tabla que queremos actualizar
 SET nombre = 'Cristina'							-- Con "set" añadimos el valor que queremos añadir y donde
 WHERE tipo_miembro = 'miembro' AND puntos_acumulados > 300;	-- Con "where" seleccionamos las condiciones que se tienen que cumplir para aplicar el valor que añadimos antes
+
+-- 13.- En la tabla “vale_descuento”, establece como no usados todos los vales del usuario con id_usuario igual 1.
+UPDATE Vale_descuento
+SET usado = 0
+WHERE id_usuario = 1;
+
+-- 14.- En la tabla “direccion”, actualiza todos los datos de la dirección con id_direccion igual a 2. Usa los siguientes datos:
+																																/*calle: Calle Sanitarios, 33
+																																ciudad: Granada
+																																Codigo_postal: 48210
+																																Población: Almuñecar
+																																es_favorita: 1
+																																id_usuario: 2*/
+UPDATE Direccion
+SET calle = 'Calle Sanitarios, 33', ciudad = 'Granada', codigo_postal = 48210, poblacion = 'Almuñecar', es_favorita = 1, id_usuario = 2
+WHERE id_direccion = 2;
+
+-- 15.- En la tabla “direccion”, actualiza el valor es_favorita a 0 de la dirección cuyo id_usuario es 2 y la población no es “Almuñecar”.
+UPDATE Direccion
+SET es_favorita = 0
+WHERE id_usuario = 2 AND poblacion != 'Almuñecar';
+
+-- 16.- En la tabla “almacen”, actualiza la capacidad a 250000 del almacén cuya población empiece por “San” y su ciudad no sea “Huelva”.
+UPDATE Almacen
+SET capacidad_total = 250000
+WHERE poblacion LIKE 'San%' AND ciudad != 'Huelva';	-- Con "like" añadimos la condicion de que esté la palabra buscada y con "%" indicamos si la palabra está al inicio/final/en medio
+
+-- 17.- En la tabla “producto”, actualiza el stock sumando 11 al producto proporcionado por el almacén con ID 3.
+UPDATE Producto
+SET stock = stock + 11
+WHERE id_almacen = 3;
+
+-- 18.- En la tabla “compra”, actualiza la forma de pago a “Bizum” del pedido con id_usuario igual a 2 pero que la dirección no sea la de id 3.
+UPDATE Compra
+SET forma_pago = 'Bizum'
+WHERE id_usuario = 2 AND  id_direccion != 3;
+
+-- 19.- Actualiza el total de la línea a 31,9 y la cantidad a 2 de la línea de pedido cuyo ID sea 1.
+UPDATE Linea_pedido
+SET total_linea = 31.9, cantidad = 2
+WHERE id_linea = 1;
+
+-- 20.- Actualiza la descripción de la categoría cuyo nombre es “Pantalones”, y ponle el texto: “Pantalones de la nueva temporada primavera-verano”.
+UPDATE Categoria
+SET nombre = 'Pantalones de la nueva temporada primavera-verano'
+WHERE nombre = 'Pantalones';
