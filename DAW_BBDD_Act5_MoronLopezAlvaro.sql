@@ -109,3 +109,7 @@ MODIFY email VARCHAR(64) NOT NULL;
 -- 6.- Establece una restricción para que el valor de “cantidad” en la tabla “linea_pedido” siempre sea un valor mayor que 0.
 ALTER TABLE Linea_pedido
 MODIFY cantidad INT UNSIGNED CHECK (cantidad > 0);
+
+-- 7.- Cambia el nombre de la columna “direccion_favorita” por “es_favorita” de la tabla “direccion”.
+ALTER TABLE Direccion
+CHANGE direccion_favorita es_favorita INT;		-- Con "alter table" nos situamos en la tabla que queremos hacer cambios y con "change" cambiamos el nombre de la columna que sea
