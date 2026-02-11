@@ -101,3 +101,7 @@ ALTER TABLE Almacen_direccion RENAME TO Almacen;
 -- 4.- En la tabla “producto” establece que el valor de la columna “stock” sea 0 por defecto.
 ALTER TABLE Producto
 MODIFY stock INT DEFAULT 0;						-- Con "alter table" nos situamos en la tabla que queremos hacer cambios y con "modify" cambiamos el atributo que sea
+
+-- 5.- En la tabla “usuario” establece que el valor de la columna “email” no puede ser nulo.
+ALTER TABLE Usuario
+MODIFY email VARCHAR(64) NOT NULL;
