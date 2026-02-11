@@ -117,3 +117,7 @@ CHANGE direccion_favorita es_favorita INT;		-- Con "alter table" nos situamos en
 -- 8.- En la tabla “producto” modifica el tipo de la columna “nombre” a VARCHAR de tamaño 64.
 ALTER TABLE Producto
 MODIFY nombre VARCHAR(64);
+
+-- 9.- Añade la condición de clave primaria al atributo “id_linea” de la tabla “linea_pedido”. Pon además que sea auto incrementado.
+ALTER TABLE Linea_pedido
+MODIFY id_linea INT AUTO_INCREMENT PRIMARY KEY;
