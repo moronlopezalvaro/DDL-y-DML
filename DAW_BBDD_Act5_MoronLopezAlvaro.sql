@@ -94,3 +94,6 @@ CREATE TABLE IF NOT EXISTS Linea_pedido(
 	id_producto INT, 
     FOREIGN KEY (id_producto) REFERENCES Producto(id_producto)
 );
+
+-- 3.- Cambia el nombre de la tabla “almacen_direccion” por “almacen.
+ALTER TABLE Almacen_direccion RENAME TO Almacen;
