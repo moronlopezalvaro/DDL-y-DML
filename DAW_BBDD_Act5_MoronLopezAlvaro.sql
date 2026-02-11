@@ -228,3 +228,19 @@ WHERE id_linea = 1;
 UPDATE Categoria
 SET nombre = 'Pantalones de la nueva temporada primavera-verano'
 WHERE nombre = 'Pantalones';
+
+-- 21.- Elimina de la tabla “producto_categoria” el registro que relaciona al producto 3 con la categoría 2.
+DELETE FROM Producto_categoria					-- Con "delete from" seleccionamos la tabla de donde queremos eliminar un dato
+WHERE id_producto = 3 AND id_categoria = 2;		-- Con "where" seleccionamos las condiciones que se tienen que cumplir para eliminar el dato
+
+-- 22.- Elimina de la tabla “linea_pedido” el registro que tenga un precio total mayor de 30 €.
+DELETE FROM Linea_pedido
+WHERE total_linea > 30;
+
+-- 23.- Elimina de la tabla “categoria” el registro que contenga la palabra “mercado” en la descripción.
+DELETE FROM Categoria
+WHERE descripcion LIKE '%mercado%';
+
+-- 24.- Elimina de la tabla “vale_descuento” todos los vales que no sean del usuario con ID 1.
+DELETE FROM Vale_descuento
+WHERE id_usuario != 1;
