@@ -97,3 +97,7 @@ CREATE TABLE IF NOT EXISTS Linea_pedido(
 
 -- 3.- Cambia el nombre de la tabla “almacen_direccion” por “almacen.
 ALTER TABLE Almacen_direccion RENAME TO Almacen;
+
+-- 4.- En la tabla “producto” establece que el valor de la columna “stock” sea 0 por defecto.
+ALTER TABLE Producto
+MODIFY stock INT DEFAULT 0;						-- Con "alter table" nos situamos en la tabla que queremos hacer cambios y con "modify" cambiamos el atributo que sea
