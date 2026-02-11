@@ -105,3 +105,7 @@ MODIFY stock INT DEFAULT 0;						-- Con "alter table" nos situamos en la tabla q
 -- 5.- En la tabla “usuario” establece que el valor de la columna “email” no puede ser nulo.
 ALTER TABLE Usuario
 MODIFY email VARCHAR(64) NOT NULL;
+
+-- 6.- Establece una restricción para que el valor de “cantidad” en la tabla “linea_pedido” siempre sea un valor mayor que 0.
+ALTER TABLE Linea_pedido
+MODIFY cantidad INT UNSIGNED CHECK (cantidad > 0);
