@@ -177,3 +177,8 @@ INSERT INTO Linea_pedido (id_linea,cantidad,total_linea,id_compra,id_producto) V
 (2,1,29.99,1,2),
 (3,2,59.98,2,2),
 (4,1,29.99,3,2);
+
+-- 12.- En la tabla “usuario”, actualiza el valor del nombre a “Cristina” para el usuario que sea “miembro” y tenga más de 300 puntos acumulados.
+UPDATE Usuario									-- Con "update" seleccionamos la tabla que queremos actualizar
+SET nombre = 'Cristina'							-- Con "set" añadimos el valor que queremos añadir y donde
+WHERE tipo_miembro = 'miembro' AND puntos_acumulados > 300;	-- Con "where" seleccionamos las condiciones que se tienen que cumplir para aplicar el valor que añadimos antes
