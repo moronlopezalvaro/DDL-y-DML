@@ -121,3 +121,7 @@ MODIFY nombre VARCHAR(64);
 -- 9.- Añade la condición de clave primaria al atributo “id_linea” de la tabla “linea_pedido”. Pon además que sea auto incrementado.
 ALTER TABLE Linea_pedido
 MODIFY id_linea INT AUTO_INCREMENT PRIMARY KEY;
+
+-- 10.- Elimina la columna “precio_unidad” de la tabla “linea_pedido”.
+ALTER TABLE linea_pedido
+DROP COLUMN precio_unidad;						-- Con "alter table" nos situamos en la tabla que queremos hacer cambios y con "drop" eliminamos la columna que sea
