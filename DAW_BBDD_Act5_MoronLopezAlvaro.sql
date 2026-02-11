@@ -113,3 +113,7 @@ MODIFY cantidad INT UNSIGNED CHECK (cantidad > 0);
 -- 7.- Cambia el nombre de la columna “direccion_favorita” por “es_favorita” de la tabla “direccion”.
 ALTER TABLE Direccion
 CHANGE direccion_favorita es_favorita INT;		-- Con "alter table" nos situamos en la tabla que queremos hacer cambios y con "change" cambiamos el nombre de la columna que sea
+
+-- 8.- En la tabla “producto” modifica el tipo de la columna “nombre” a VARCHAR de tamaño 64.
+ALTER TABLE Producto
+MODIFY nombre VARCHAR(64);
